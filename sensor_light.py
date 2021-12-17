@@ -1,5 +1,5 @@
 import serial
-import datetime
+from datetime import datetime
 from serial.tools import list_ports
 
 # lista as portas do arduino
@@ -16,5 +16,5 @@ for port in list_ports.comports():
 if conexao != "":
   while True:
     resposta = conexao.readline()
-    print(datetime.datetime.now(), float(resposta.decode()))
+    print(datetime.now(), float(resposta.decode()))
   conexao.close()
