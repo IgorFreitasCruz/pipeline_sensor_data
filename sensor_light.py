@@ -13,8 +13,14 @@ for port in list_ports.comports():
     except:
       pass
 
-if conexao != "":
-  while True:
+def get_sensor():
+  """If there is a connection returnes sensor data."""
+  if conexao != "":
     resposta = conexao.readline()
-    print(datetime.now(), float(resposta.decode()))
-  conexao.close()
+    return float(resposta.decode())
+  else:
+    conexao.close()
+
+while True:
+  print(get_sensor())
+
