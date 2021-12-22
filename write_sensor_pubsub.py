@@ -1,5 +1,4 @@
-
-from sensor_light import get_sensor
+from read_sensor import get_sensor
 from concurrent import futures
 from typing import Callable
 from google.cloud import pubsub_v1
@@ -11,7 +10,7 @@ service_account_key = r"soulcode-331512-8fe205b6b6f8.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = service_account_key
 
 PROJECT_ID = 'soulcode-331512'
-TOPIC_ID = 'logs_topic'
+TOPIC_ID = 'sensor_topic'
 
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(PROJECT_ID, TOPIC_ID)
